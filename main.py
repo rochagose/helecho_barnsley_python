@@ -14,4 +14,12 @@ x = 0
 y = 0
 pts = []
 
-
+#Calcular los puntos del fractal
+for _ in range (11000):
+    r = random.random()
+    for(a, b, c, d, e, f, p) in TRANSFORMACIONES:
+        if r < p:
+            x, y = a * x + b * y + e, c * x + d * y + f
+            break
+        r -= p
+    pts.append((x, y))
