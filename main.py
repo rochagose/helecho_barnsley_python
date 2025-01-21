@@ -1,4 +1,4 @@
-import matplotlib
+import matplotlib.pyplot as plt
 import random
 
 #CONSTANTES DE TRANSFORMACION
@@ -15,7 +15,7 @@ y = 0
 pts = []
 
 #Calcular los puntos del fractal
-for _ in range (11000):
+for _ in range (20000):
     r = random.random()
     for(a, b, c, d, e, f, p) in TRANSFORMACIONES:
         if r < p:
@@ -23,3 +23,10 @@ for _ in range (11000):
             break
         r -= p
     pts.append((x, y))
+
+#Dibujar el fractal
+x_vals, y_vals = zip(*pts)
+plt.figure(figsize=(6, 8))
+plt.scatter(x_vals, y_vals, s=0.2, color="green")
+plt.axis("off")
+plt.show()
